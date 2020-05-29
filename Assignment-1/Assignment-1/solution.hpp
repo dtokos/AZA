@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 struct _vector {
 	int x;
@@ -11,7 +12,15 @@ struct _vector {
 };
 typedef struct _vector Vector;
 
-int *createMap(int init, Vector size);
-int findLongestPath(int *map, Vector size);
+struct _node {
+	int value;
+	int inc;
+	int dec;
+	bool visited;
+};
+typedef struct _node Node;
+
+Node *createMap(int init, Vector size);
+int findLongestPath(Node *map, Vector size);
 
 #endif
